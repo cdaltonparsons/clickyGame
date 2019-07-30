@@ -46,7 +46,7 @@ navbar {
 }
 
 .row {
-  align-content: center;
+  margin: 5px;
 }
 
 body {
@@ -55,6 +55,6 @@ body {
 
 
 .navbar p {
-  text-align: end;
+  margin-left: 75rem;
   color: white;
 }

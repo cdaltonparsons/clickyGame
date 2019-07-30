@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-          <p>Score: {this.state.currentScore} | Top Score: {this.state.topScore}</p>
+         <p>Score: {this.state.currentScore} | Top Score: {this.state.topScore}</p>
         </nav>
         <div class="jumbotron bg-info">
           <h1 class="display-3">
@@ -51,6 +51,7 @@ class App extends Component {
               image={card.image}
               id={card.id}
               handleClick={this.handleClick}
+              handleReset={this.handleReset}
             />
           ))}
         </div>
