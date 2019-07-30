@@ -2,41 +2,67 @@ import React, { Component } from "react";
 import Card from "./components/Card";
 import cards from "./cards.json";
 import "./App.css";
-const _ = require("lodash");
+import _ from "lodash";
 
 class App extends Component {
   state = {
     cards,
     currentScore: 0,
-    topScore: 0,
+    highScore: 0,
     clicked: []
   };
 
-  shuffle = (arr) => {
-      _.shuffle(arr)
-  }
-
-  handleClick = (id) => {
-    if(this.state.clicked.indexOf[id] === -1) {
-        this.handleIncrement();
-        this.setState(this.state.clicked.concat(id))
-    } else {
-        this.handleReset();
-    };
+  handleShuffle = () => {
+    this.setState({ cards: _.shuffle(this.state.cards) });
   };
 
+  handleClick = id => {
+    console.log("clicked");
+    if (!this.state.clicked.indexOf[id]) {
+      this.handleIncrement();
+      this.setState({ clicked: this.state.clicked.concat(id) });
+      console.log("this.clicked", this.clicked);
+      this.handleShuffle();
+    } else {
+      this.handleShuffle();
+    }
+  };
+
+  handleIncrement = () => {
+    const newScore = this.state.currentScore + 1;
+    this.setState({
+      currentScore: newScore
+    });
+    if (newScore >= this.state.highScore) {
+      this.setState({ highScore: newScore });
+    } else if (newScore === 12) {
+      alert("You won! Congratulations!");
+      this.handleReset();
+    }
+  };
+
+  handleReset = () => {
+    this.setState({
+      currentScore: 0,
+      highScore: this.state.highScore,
+      clicked: []
+    });
+    this.handleShuffle();
+  };
 
   render() {
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-         <p>Score: {this.state.currentScore} | Top Score: {this.state.topScore}</p>
+          <p>
+            Score: {this.state.currentScore} | High Score: {this.state.highScore}
+          </p>
         </nav>
-        <div class="jumbotron bg-info">
-          <h1 class="display-3">
-            Welcome to the critically acclaimed Clicky Game!!
+        <div className="jumbotron bg-info">
+          <h1 className="display-3">
+            Welcome to the critically acclaimed <strong>Clicky Game!!</strong>
           </h1>
-          <p class="lead">
+          <p className="lead">
             The rules are simple. Click an image to score a point. Your score
             will increment each time you click a unique image. Clicking an image
             you've already clicked on will reset your score. Good Luck!
@@ -52,6 +78,7 @@ class App extends Component {
               id={card.id}
               handleClick={this.handleClick}
               handleReset={this.handleReset}
+              handleIncrement={this.handleIncrement}
             />
           ))}
         </div>

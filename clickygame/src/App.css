@@ -46,6 +46,7 @@ navbar {
 }
 
 .row {
+  align-content: center;
   margin: 5px;
 }
 
