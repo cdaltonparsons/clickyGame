@@ -1,3 +1,0 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-This app, Clicky Game!, was designed using React.  The gist of the game is simple, the goal is to click each individual card, without any repeat clicks.  Your score will increment automatically until you either click all 12 correctly, or you click incorrectly, resetting your score.  Each time you click a card they will be shuffled, so remember who you've clicked!
