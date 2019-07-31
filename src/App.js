@@ -18,10 +18,11 @@ class App extends Component {
 
   handleClick = id => {
     console.log("clicked");
-    if (!this.state.clicked.indexOf[id]) {
+    if (!this.state.clicked.includes(id)) {
       this.handleIncrement();
-      this.setState({ clicked: this.state.clicked.concat(id) });
-      console.log("this.clicked", this.clicked);
+      const newArr = this.state.clicked.concat(id);
+      this.setState({ clicked: newArr });
+      console.log("this.clicked", this.state.clicked);
       this.handleShuffle();
     } else {
       this.handleReset()
