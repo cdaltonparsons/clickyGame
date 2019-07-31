@@ -24,6 +24,7 @@ class App extends Component {
       console.log("this.clicked", this.clicked);
       this.handleShuffle();
     } else {
+      this.handleReset()
       this.handleShuffle();
     }
   };
@@ -35,7 +36,7 @@ class App extends Component {
     });
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
-    } else if (newScore === 12) {
+    } else if (this.state.currentScore === 12) {
       alert("You won! Congratulations!");
       this.handleReset();
     }
