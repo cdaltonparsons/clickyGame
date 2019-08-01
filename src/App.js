@@ -41,7 +41,10 @@ class App extends Component {
     });
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
-    } 
+    } else if (this.state.currentScore === 12) {
+      this.handleReset();
+      alert("You won! Congratulations!");
+    }
   };
 
   handleReset = () => {
