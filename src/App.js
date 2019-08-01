@@ -22,14 +22,15 @@ class App extends Component {
       const newArr = this.state.clicked.concat(id);
       this.setState({ clicked: newArr });
       this.handleShuffle();
-    } else if (this.state.currentScore === 12) {
+    }
+      else if (this.state.clicked.includes(id)){
+        this.handleReset()
+        this.handleShuffle();
+        alert("Sorry! Try Again!")
+      }
+     else (this.state.currentScore === 12) {
       this.handleReset();
       alert("You won! Congratulations!");
-    }
-      else {
-      this.handleReset()
-      this.handleShuffle();
-      alert("Sorry! Try Again!")
     }
   };
 
