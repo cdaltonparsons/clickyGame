@@ -17,16 +17,15 @@ class App extends Component {
   };
 
   handleClick = id => {
-    console.log("clicked");
     if (!this.state.clicked.includes(id)) {
       this.handleIncrement();
       const newArr = this.state.clicked.concat(id);
       this.setState({ clicked: newArr });
-      console.log("this.clicked", this.state.clicked);
       this.handleShuffle();
     } else {
       this.handleReset()
       this.handleShuffle();
+      alert("Sorry! Try Again!")
     }
   };
 
@@ -38,8 +37,8 @@ class App extends Component {
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
     } else if (this.state.currentScore === 12) {
-      alert("You won! Congratulations!");
       this.handleReset();
+      alert("You won! Congratulations!");
     }
   };
 
