@@ -23,15 +23,11 @@ class App extends Component {
       this.setState({ clicked: newArr });
       this.handleShuffle();
     }
-      else if (this.state.clicked.includes(id)){
+      else {
         this.handleReset()
         this.handleShuffle();
         alert("Sorry! Try Again!")
       }
-     else if (this.state.currentScore === 12) {
-      this.handleReset();
-      alert("You won! Congratulations!");
-    }
   };
 
   handleIncrement = () => {
@@ -41,7 +37,7 @@ class App extends Component {
     });
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
-    } else if (this.state.currentScore === 12) {
+    } else if (newScore === 12) {
       this.handleReset();
       alert("You won! Congratulations!");
     }
