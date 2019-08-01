@@ -35,13 +35,14 @@ class App extends Component {
     this.setState({
       currentScore: newScore
     });
-    if (newScore >= this.state.highScore) {
+   if (newScore === 12) {
+    this.handleReset();
+    alert("You won! Congratulations!");
+  }
+  else if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
-    } else if (newScore === 12) {
-      this.handleReset();
-      alert("You won! Congratulations!");
-    }
   };
+}
 
   handleReset = () => {
     this.setState({
