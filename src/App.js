@@ -22,7 +22,11 @@ class App extends Component {
       const newArr = this.state.clicked.concat(id);
       this.setState({ clicked: newArr });
       this.handleShuffle();
-    } else {
+    } else if (this.state.currentScore === 12) {
+      this.handleReset();
+      alert("You won! Congratulations!");
+    }
+      else {
       this.handleReset()
       this.handleShuffle();
       alert("Sorry! Try Again!")
@@ -36,10 +40,7 @@ class App extends Component {
     });
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
-    } else if (this.state.currentScore === 12) {
-      this.handleReset();
-      alert("You won! Congratulations!");
-    }
+    } 
   };
 
   handleReset = () => {
