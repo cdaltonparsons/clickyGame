@@ -28,7 +28,7 @@ class App extends Component {
         this.handleShuffle();
         alert("Sorry! Try Again!")
       }
-     else (this.state.currentScore === 12) {
+     else if (this.state.currentScore === 12) {
       this.handleReset();
       alert("You won! Congratulations!");
     }
