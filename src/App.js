@@ -31,7 +31,7 @@ class App extends Component {
   };
 
   handleIncrement = () => {
-    const newScore = this.state.currentScore + 1;
+    let newScore = this.state.currentScore + 1;
     this.setState({
       currentScore: newScore
     });
